@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>One Piece Manga | Read Online</title>
+
+</head>
+
+<body>
+
+    <style>
+        p {
+            color: white;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .image {
+            width: 100%;
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="d-flex justify-content-center">
+                <img class="image" src="onePieceTransText.png" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1>Synopsis</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 d-flex align-items-stretch justify-content-center">
+                <p>Gol D. Roger was known as the "Pirate King," the strongest and most infamous being to have sailed
+                    the
+                    Grand Line. The capture and execution of Roger by the World Government brought a change
+                    throughout
+                    the world. His last words before his death revealed the existence of the greatest treasure in
+                    the
+                    world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who
+                    dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite
+                    possibly the pinnacle of glory and the title of the Pirate King.
+
+                    Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather
+                    than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun,
+                    Luffy's reason for being a pirate is one of pure wonder: the thought of an exciting adventure
+                    that
+                    leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps
+                    of
+                    his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy
+                    adventures,
+                    unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of
+                    all
+                    fortunes—One Piece.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 d-flex justify-content-center">
+                <ul id="chaptersList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let requestURL = 'https://raw.githubusercontent.com/AnimeOtakuMan/One-Piece-Chapters-Json/master/chapter_json.json';
+        // let requestURL = 'file:///home/rusab/Documents/Scripts/One%20Piece%20Chapter%20Download/chapter_json.json'
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+
+        request.responseType = 'json';
+        request.send();
+
+        request.onload = function () {
+            const chapters = request.response;
+            console.log(chapters);
+            chapters.forEach(element => {
+                var ul = document.getElementById("chaptersList");
+                var newItemList = document.createElement("a");
+                newItemList.innerText = element['chapter_number'];
+                newItemList.href = "chapter.html?chapter=" + element['chapter_number'];
+                newItemList.setAttribute("class", "list-group-item list-group-item-action")
+                ul.appendChild(newItemList);
+            });
+        }
+    </script>
+</body>
+
+</html>
