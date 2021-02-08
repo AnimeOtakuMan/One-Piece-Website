@@ -7,6 +7,7 @@
     <link rel="icon" 
     type="image/jpg" 
     href="favicon.jpg">
+    <title>One Piece Chapter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
@@ -33,6 +34,7 @@
         request.onload = function () {
             var chapterNumber = getQueryVariable("chapter");
             chapterNumber = chapterNumber.replaceAll("%20", " ");
+            document.title = "One Piece Chapter " + chapterNumber;
             const chapters = request.response;
             var currentChapter = null;
             chapters.forEach(element => {
