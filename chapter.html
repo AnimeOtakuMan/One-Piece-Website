@@ -42,6 +42,14 @@
             color: white;
             text-align: center;
         }
+        .leftButton {
+            position: relative;
+            right: 20%;
+        }
+        .rightButton {
+            position: relative;
+            left:20%;
+        }
     </style>
 
 <div id="title">
@@ -71,11 +79,55 @@
 
             const chapters = request.response;
             var currentChapter = null;
-            chapters.forEach(element => {
-                if (element['chapter_number'] == chapterNumber) {
-                    currentChapter = element;
+            var latestChapter = true;
+            //Find out if current chapter is latest chapter
+            for (let chapter of chapters) {
+                if (chapter['chapter_number'] == chapterNumber) {
+                    currentChapter = chapter;
+                    break;
                 }
-            });
+                else {
+                    latestChapter = false;
+                }
+            }
+
+            let nextChapterNumber = "chapter.html?chapter=";
+            let prevChapterNumber = "chapter.html?chapter=";
+            //Find out next chapter URL and prev chapter URL
+            for (var i = 0; i < chapters.length; i++) {
+                if (chapters[i]['chapter_number'] == chapterNumber) {
+                    currentChapter = chapters[i];
+                    if (i != 0) { 
+                        nextChapterNumber += chapters[i-1]['chapter_number'];
+                    }
+                    if (i != chapters.length -1) {
+                        prevChapterNumber += chapters[i+1]['chapter_number'];
+                    }
+                    break;
+                }
+                else {
+                    latestChapter = false;
+                }
+            }
+
+            console.log("Prev: " + prevChapterNumber);
+            console.log("Next: " + nextChapterNumber);
+
+            var prevChapterButton = document.createElement("a");
+            prevChapterButton.setAttribute("class", "leftButton");
+            var nextChapterButton = document.createElement("a");
+            nextChapterButton.setAttribute("class", "rightButton");
+
+            prevChapterButton.setAttribute("href", prevChapterNumber);
+            nextChapterButton.setAttribute("href", nextChapterNumber);
+
+            prevChapterButton.innerHTML = "Previous Chapter"
+            nextChapterButton.innerHTML = "Next Chapter"
+            titleDiv.appendChild(prevChapterButton);
+            if (!latestChapter) {
+                titleDiv.appendChild(nextChapterButton);
+            }
+
             const imageURLs = currentChapter['image_urls'];
             var pageList = document.getElementById("pageList");
             imageURLs.forEach(element => {
