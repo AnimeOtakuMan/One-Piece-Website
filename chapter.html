@@ -8,8 +8,8 @@
     <title>One Piece Chapter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101300413);</script>
-    <script async src="//static.getclicky.com/js"></script>
+        <meta name="description" content="Read Latest One Piece chapter latest" />
+        <meta name="robots" content="index, follow" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTV0J12CLR"></script>
     <script>
@@ -38,8 +38,15 @@
             position: relative;
             top: 250px;
         }
+        #title {
+            color: white;
+            text-align: center;
+        }
     </style>
 
+<div id="title">
+
+</div>
     <div class="container" id="pageList">
     </div>
 
@@ -55,7 +62,13 @@
         request.onload = function () {
             var chapterNumber = getQueryVariable("chapter");
             chapterNumber = chapterNumber.replaceAll("%20", " ");
-            document.title = "One Piece Chapter " + chapterNumber;
+            document.title = chapterNumber;
+
+            var headingElement = document.createElement("h2");
+            headingElement.innerHTML = chapterNumber;
+            var titleDiv = document.getElementById("title");
+            titleDiv.appendChild(headingElement);
+
             const chapters = request.response;
             var currentChapter = null;
             chapters.forEach(element => {
@@ -72,6 +85,7 @@
 
                 pageImage.setAttribute("src", element);
                 pageImage.setAttribute("class", "img-fluid");
+                pageImage.setAttribute("alt", "One Piece Chapter " + chapterNumber);
 
                 pageDiv.appendChild(pageImage);
                 pageList.appendChild(pageDiv);
