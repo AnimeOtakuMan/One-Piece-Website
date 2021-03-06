@@ -10,6 +10,73 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="description" content="Read Latest One Piece chapter latest" />
     <meta name="robots" content="index, follow" />
+
+    <meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" />
+<meta property="og:site_name" content="One Piece Manga Online" />
+<meta property="article:tag" content="Akainu" />
+<meta property="article:tag" content="Arcs" />
+<meta property="article:tag" content="Boa Hancock" />
+<meta property="article:tag" content="Books" />
+<meta property="article:tag" content="Brook" />
+<meta property="article:tag" content="Charlotte Linlin" />
+<meta property="article:tag" content="color" />
+<meta property="article:tag" content="Crocodile" />
+<meta property="article:tag" content="Digitally Colored" />
+<meta property="article:tag" content="Donquixote Doflamingo" />
+<meta property="article:tag" content="Edward Newgate" />
+<meta property="article:tag" content="Ending" />
+<meta property="article:tag" content="episode list" />
+<meta property="article:tag" content="Franky" />
+<meta property="article:tag" content="Gol D. Roger" />
+<meta property="article:tag" content="Kaido" />
+<meta property="article:tag" content="Kizaru" />
+<meta property="article:tag" content="luffy" />
+<meta property="article:tag" content="Manga" />
+<meta property="article:tag" content="Monkey D" />
+<meta property="article:tag" content="Monkey D. Dragon" />
+<meta property="article:tag" content="Monkey D. Luffy" />
+<meta property="article:tag" content="monkeyD" />
+<meta property="article:tag" content="Nami" />
+<meta property="article:tag" content="Nico" />
+<meta property="article:tag" content="Nico Robin" />
+<meta property="article:tag" content="One" />
+<meta property="article:tag" content="one peace" />
+<meta property="article:tag" content="One Piece" />
+<meta property="article:tag" content="one piece anime" />
+<meta property="article:tag" content="one piece books" />
+<meta property="article:tag" content="one piece characters" />
+<meta property="article:tag" content="one piece color" />
+<meta property="article:tag" content="one piece colored" />
+<meta property="article:tag" content="one piece Digitally Colored" />
+<meta property="article:tag" content="one piece luffy" />
+<meta property="article:tag" content="one piece main characters" />
+<meta property="article:tag" content="one piece stampede" />
+<meta property="article:tag" content="one piece wiki" />
+<meta property="article:tag" content="Original" />
+<meta property="article:tag" content="Perona" />
+<meta property="article:tag" content="Piece" />
+<meta property="article:tag" content="Portgas D. Ace" />
+<meta property="article:tag" content="read one piece" />
+<meta property="article:tag" content="Roronoa" />
+<meta property="article:tag" content="Roronoa Zoro" />
+<meta property="article:tag" content="Sabo" />
+<meta property="article:tag" content="sanji" />
+<meta property="article:tag" content="Shanks" />
+<meta property="article:tag" content="Tony Tony" />
+<meta property="article:tag" content="Tony Tony Chopper" />
+<meta property="article:tag" content="Trafalgar" />
+<meta property="article:tag" content="Trafalgar D. Water Law" />
+<meta property="article:tag" content="Usopp" />
+<meta property="article:tag" content="Vinsmoke Sanji" />
+<meta property="article:tag" content="zoro" />
+<meta property="og:image" content="https://lifeofluffy.com/favicon.jpg" />
+<meta property="og:image:secure_url" content="https://lifeofluffy.com/favicon.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" />
+<meta name="twitter:image" content="https://lifeofluffy.com/favicon.jpg" />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTV0J12CLR"></script>
     <script>
@@ -127,8 +194,27 @@
                 }
             }
 
-            console.log("Prev: " + prevChapterNumber);
-            console.log("Next: " + nextChapterNumber);
+            var metaArticle = document.createElement("meta");
+            metaArticle.setAttribute("property", "article:tag");
+            metaArticle.setAttribute("content", "Chapter " + chapterNumber);
+            document.getElementsByTagName('head')[0].appendChild(metaArticle);
+
+
+            var metaArticle2 = document.createElement("meta");
+            metaArticle2.setAttribute("name", "twitter:title");
+            metaArticle2.setAttribute("content", "One Piece, Chapter " + chapterNumber + " - One Piece Manga Online");
+            document.getElementsByTagName('head')[0].appendChild(metaArticle2);
+
+
+            var metaArticle3 = document.createElement("meta");
+            metaArticle3.setAttribute("property", "og:url");
+            metaArticle3.setAttribute("content", "https://online-one-piece.com/manga/one-piece-chapter-" + chapterNumber);
+            document.getElementsByTagName('head')[0].appendChild(metaArticle3);
+
+            var metaArticle4 = document.createElement("meta");
+            metaArticle4.setAttribute("property", "og:title");
+            metaArticle4.setAttribute("content", "One Piece Chapter " + chapterNumber);
+            document.getElementsByTagName('head')[0].appendChild(metaArticle4);
 
             var prevChapterButton = document.createElement("a");
             prevChapterButton.setAttribute("class", "leftButton");
